@@ -1,12 +1,19 @@
-FROM node:16
+FROM node
 
-WORKDIR /app
+WORKDIR /tmp/react
 
-COPY package.json .
+COPY package*.json .
+
 RUN npm i
 
 COPY . .
 
-EXPOSE 5173
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+RUN mkdir -p /var/www/html
+
+RUN mv dist/* /var/www/html
+
+WORKDIR /
+
+RUN rm -rf /tmp/react
