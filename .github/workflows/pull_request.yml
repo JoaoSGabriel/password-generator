@@ -16,4 +16,4 @@ jobs:
           directory: back-end
           file_name: .env.test
       - name: Run tests
-        run: docker-compose -f docker-compose-test.yml run data_tester npm run test
+        run: docker-compose -f docker-compose-test.yml run node_password_generator npm run test
