@@ -26,6 +26,7 @@ services:
     build: ./front-end
     volumes:
       - react-volume:/var/www/html
+    stdin_open: true
 
   nginx:
     container_name: nginx
