@@ -1,12 +1,10 @@
-FROM node
+FROM node:16
 
 WORKDIR /tmp/react
 
-COPY package*.json .
+COPY . .
 
 RUN npm i
-
-COPY . .
 
 RUN npm run build
 
